@@ -1,0 +1,113 @@
+<html>
+        <head>
+                <title>OTHEXO</title> 
+                <meta charset="UTF-8">
+                <link href="hexareversi.css" rel="stylesheet" type="text/css"/>
+                <script src="http://www.comp.nus.edu.sg/~gem1501/year1314sem2/project/randommove.js">
+                </script> 
+                <!-- INSERT THE OPPONENTS FILE (WITH INTERNET ADDRESS) IN PLACE OF
+     THE DEFAULT IN THE ENVIRONMENT OF SCRIPT SRC-->
+                <script src="yourplayer.js">
+                </script> 
+                <script src="svg.js">
+                </script> 
+                <script src="svg.shapes.js">
+                </script> 
+                <script src="othexo.js">
+                </script> 
+        </head> 
+        <body>
+                <div class="oborder">
+                        <div class="hexhead">
+                                OTHEXO  
+                        </div> 
+                        <div class="column-left">
+                                <div class="border">
+                                        <h2>
+                                                Options  
+                                        </h2>
+                                        <div>
+                                                Algorithm for player Red:  
+                                                <select id="playerX">
+                                                        <option value="HumanPlayer">Human</option> 
+                                                        <option value="RandomPlayer" selected>Random</option> 
+                                                        <option value="GreedyRandomPlayer">Greedy random</option> 
+                                                        <option value="PositionRandomPlayer">Position random</option> 
+                                                        <option value="MysteryPlayer">Mystery Player (not yet revealed)</option> 
+                                                        <option value="THEXI" selected>THEXI</option>  
+                                                </select> 
+                                        </div> 
+                                        <div>
+                                                Algorithm for player Blue:  
+                                                <select id="playerY">
+                                                        <option value="HumanPlayer">Human</option> 
+                                                        <option value="RandomPlayer">Random</option> 
+                                                        <option value="GreedyRandomPlayer">Greedy random</option> 
+                                                        <option value="PositionRandomPlayer" selected>Position random</option> 
+                                                        <option value="MysteryPlayer">Mystery Player (not yet revealed)</option> 
+                                                        <option value="THEXI">THEXI</option> 
+                                                </select> 
+                                        </div> 
+                                        <br/>
+                                        <div>
+                                                Delay between moves (in msec): <input type="text" id="delay" value="1000"/>
+                                        </div> 
+                                        <br/>
+                                        <div>
+                                                <input type="checkbox" id="tournament" onclick="toggledivvisibility(this)">Tournament Mode  
+                                                <br/>
+                                                <div id="roundsdiv">
+                                                        Number of rounds <input type="text" id="tournamentrounds" value="10"/>
+                                                </div> 
+                                        </div> 
+                                        <br/>
+                                        <div>
+                                                <button class="btn" onclick="a = start(a)" id="start">Start</button> 
+                                                &nbsp; <button class="btn" onclick="a = restart(a)" id="restart">Restart</button> 
+                                        </div> 
+                                        <br/>
+                                         
+                                <div>
+                                                <h2>
+                                                        Status  
+                                                </h2>
+                                                <div id="score">
+                                                </div> 
+                                        </div>
+                                </div> 
+                        </div> 
+                        <div class="column-right">
+                                <div class="border">
+                                        <div id="table">
+                                                <div id="tablecell">
+                                                        <div id="board">
+                                                        </div> 
+                                                        <div id="tournamentdiv">
+                                                                <h2>
+                                                                        Tournament Results 
+                                                                </h2>
+                                                                <div id="tournamentlog">
+                                                                </div>
+                                                                <div id="tournamentresults">
+                                                                </div>
+                                                        </div> 
+                                                </div> 
+                                        </div> 
+                                </div> 
+                        </div> 
+                </div> 
+
+                <div>
+                        <div id="inputX">
+                                Player X's next move: <input type="text" id="moveX" size="4"/>
+                                <input type="hidden" id="hiddenX"/>
+                                <button onclick="humanMove('X')" id="clickX">Move</button> 
+                        </div> 
+                        <div id="inputY">
+                                Player Y's next move: <input type="text" id="moveY" size="4" disabled/>
+                                <input type="hidden" id="hiddenY"/>
+                                <button onclick="humanMove('Y')" id="clickY" disabled>Move</button> 
+                        </div> 
+                </div> 
+        </body> 
+</html> 
